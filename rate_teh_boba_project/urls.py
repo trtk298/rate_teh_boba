@@ -18,7 +18,7 @@ from django.urls import include, path
 from rtb import views
 
 urlpatterns = [
-	path('', views.index, name='index'),
+	path(r'^$', views.index, name='index'),
 	path('rtb/', include('rtb.urls')),
-    path('admin/', admin.site.urls),
-]
+    path(r'^admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
